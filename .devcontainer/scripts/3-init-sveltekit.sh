@@ -19,5 +19,11 @@ else
 fi
 
 echo "==> Initializing SvelteKit project..."
-npx create-svelte@latest
+npx sv create . \
+  --template minimal \
+  --types ts \
+  --add prettier eslint vitest="usages:unit,component" tailwindcss="plugins:typography,forms" sveltekit-adapter="adapter:auto" devtools-json \
+  --no-add-ons \
+  --install npm \
+  --no-dir-check
 # ... rest of your SvelteKit setup commands
