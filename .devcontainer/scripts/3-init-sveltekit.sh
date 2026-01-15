@@ -14,13 +14,21 @@ else
     echo "Node.js already installed: $(node -v)"
 fi
 
+echo "==> Setting up pnpm via corepack..."
+sudo corepack enable
+corepack prepare pnpm@latest --activate
+pnpm --version
+
 echo "==> Initializing SvelteKit project..."
 
 npx --yes sv create . \
   --template minimal \
   --types ts \
   --add prettier eslint vitest="usages:unit,component" tailwindcss="plugins:typography,forms" sveltekit-adapter="adapter:auto" devtools-json \
-  --install npm \
+  --no-install \
   --no-dir-check
 
-echo "Done installing sveltekit"
+echo "==> Installing dependencies with pnpm..."
+pnpm install
+
+echo "Done setting up SvelteKit"
