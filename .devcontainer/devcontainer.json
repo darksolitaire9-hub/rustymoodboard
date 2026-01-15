@@ -1,0 +1,26 @@
+{
+  "name": "RustyMoodboard",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/rust:1": {
+      "version": "latest",
+      "profile": "minimal"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "svelte.svelte-vscode",
+        "rust-lang.rust-analyzer",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "tamasfe.even-better-toml"
+      ]
+    }
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y clang lld && rustup target add wasm32-unknown-unknown && cargo install wasm-bindgen-cli && npm install && curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh",
+  "forwardPorts": [5173]
+}
