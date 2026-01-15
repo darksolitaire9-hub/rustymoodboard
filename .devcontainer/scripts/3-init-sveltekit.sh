@@ -1,14 +1,23 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euxo pipefail
 
-echo "==> Initializing SvelteKit project..."
+echo "==> Setting up SvelteKit environment..."
 
-# Only run if not already initialized
-if [ ! -f "package.json" ]; then
-    npx sv create . --template minimal --types ts --install pnpm --no-interactive
+# Check if Node.js is installed
+if ! command -v node &> /dev/null; then
+    echo "Node.js not found, installing..."
+    
+    # Install Node.js LTS via NodeSource
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    
+    # Verify installation
+    node -v
+    npm -v
 else
-    echo "SvelteKit already initialized, running install..."
-    pnpm install
+    echo "Node.js already installed: $(node -v)"
 fi
 
-echo "✓ SvelteKit initialized successfully"
+echo "==> Initializing SvelteKit project..."
+npx create-svelte@latest
+# ... rest of your SvelteKit setup commands
