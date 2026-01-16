@@ -1,0 +1,83 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build outputs
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
+/dist
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# WASM build artifacts
+/wasm/pkg
+/wasm/target
+**/*.wasm.map
+
+# WebGPU shader compiled outputs (if any)
+*.spv
+
+# Test coverage
+coverage
+.nyc_output
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# Local workspace data (user-chosen folder)
+# Note: This is managed by File System Access API, not tracked in git
+.workspace-cache
+
+# Temporary files
+*.tmp
+*.temp
+.cache
+
+# Database files (for local development/testing only)
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# TypeScript
+*.tsbuildinfo
+
+# Testing
+.test-results
+playwright-report
+test-results
